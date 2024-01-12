@@ -1,0 +1,310 @@
+:root {
+  --negro: #393939;
+  --font-color: rgb(94, 94, 94);
+  --tipo-principal: Helvetica, Arial, sans-serif;
+  --tipo-secundaria: Verdana;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+li {
+  list-style-type: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+}
+
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  background-color: var(--negro);
+  color: var(--font-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  min-width: 50rem;
+  min-height: 37.5rem;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  box-shadow: 2px 2px 5px 5px rgba(255, 255, 255, 0.153);
+}
+
+.nav-bar {
+  width: 20%;
+  background-color: #cd9138;
+  border-radius: 8px 0 0 8px;
+}
+
+.nav-title {
+  font-size: 1.6em;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.nav-list:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #393939;
+}
+.nav-item {
+  padding: 0.8rem;
+}
+
+.content {
+  width: 80%;
+  position: relative;
+  padding: 2rem;
+}
+
+.show-form-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 1rem;
+  background-color: #393939;
+  color: white;
+  padding: 0.9375rem;
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.384);
+  transition: all 0.1s ease-in;
+  &:hover {
+    cursor: pointer;
+    background-color: #4e4e4e;
+  }
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-text {
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+}
+
+.task-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.task-description {
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
+
+.more-btn {
+  color: blue;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.task-options {
+  display: flex;
+  position: relative;
+  margin: 0.5rem;
+}
+
+.task-options button {
+  transition: all 0.1s ease-in-out;
+  width: 3.125rem;
+  height: 3.125rem;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
+.task-options button span {
+  font-size: 1.7em;
+}
+
+.task-mark-container {
+  transition: all 0.1s ease-in-out;
+  width: 2.5rem;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+}
+
+.task-options .task-mark-btn {
+  cursor: pointer;
+  font-size: 16px;
+  width: 1.8rem;
+  height: 1.8rem;
+  background-color: #ccc;
+}
+
+.task-mark-btn span {
+  display: none;
+}
+
+.task-mark-container.done span {
+  display: block;
+  color: white;
+}
+
+.task-mark-container.done button {
+  background-color: rgb(0, 0, 195);
+}
+
+.button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: visibility 0.1s;
+}
+
+.edit-btn:hover + .tooltip,
+.delete-btn:hover + .tooltip {
+  visibility: visible;
+}
+
+.form-container {
+  display: none;
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 21.5rem;
+  height: 22.5rem;
+  background-color: #393939;
+  color: #ccc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 2px 10px 5px rgba(0, 0, 0, 0.242);
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input-title {
+  font-size: 1.2em;
+  padding: 0.5rem;
+}
+
+.input-description {
+  padding: 0.5rem;
+}
+
+.input-datetime {
+  width: 200px;
+  padding: 8px;
+  font-size: 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-task-btn {
+  padding: 0.9375rem;
+  background-color: #7d7d7d;
+  color: #333;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #c1c1c1;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    color: red;
+  }
+}

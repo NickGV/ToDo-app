@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Todos</title>
+  </head>
+  <body>
+    <main class="container">
+      <section class="nav-bar">
+        <h1 class="nav-title">Welcome</h1>
+        <div class="nav">
+          <ol class="nav-list">
+            <li class="nav-item">Tasks</li>
+          </ol>
+        </div>
+      </section>
+      <section class="content">
+        <div class="form-container" id="form-container">
+          <button class="close-btn" id="close-btn"><span class="material-symbols-outlined">
+            close
+            </span></button>
+          <form action="#" class="form" id="form">
+            
+            <input
+              type="text"
+              id="input-title"
+              name="title"
+              class="input-title"
+              placeholder="Title"
+            />
+            <textarea
+              id="input-description"
+              name="description"
+              class="input-description"
+              cols="30"
+              rows="8"
+              placeholder="Description"
+            ></textarea>
+            <input
+              type="date"
+              id="input-datetime"
+              name="date"
+              class="input-datetime"
+            />
+            <button type="submit" class="add-task-btn" id="add-task-btn" >ADD</button>
+          </form>
+        </div>
+        <div class="task-container" id="task-container">
+         
+          <div class="task">
+           
+            </button>
+            <div class="task-text">
+              <h1 class="task-title">Task</h1>
+              <p class="task-description">Lorem</p>
+            </div>
+            <p class="date-time">1/01/2024</p>
+            <div class="task-options">
+              <button type="button" class="task-mark-btn">
+                <span class="material-symbols-outlined">
+                  done
+                  </span>
+              </button>
+              <div class="button-container">
+                <button class="edit-btn" id="edit-btn">
+                  <span class="material-symbols-outlined"> edit </span>
+                </button>
+                <div class="tooltip">
+                  Editar
+              </div>
+              </div>
+              <div class="button-container">
+                <button class="delete-btn" id="delete-btn">
+                  <span class="material-symbols-outlined"> delete </span>
+                </button>
+                <div class="tooltip">
+                  Delete
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="show-form-btn" id="show-form-btn">Add +</button>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
